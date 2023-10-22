@@ -1,0 +1,22 @@
+services:
+  web-app:
+    build: frontend/
+    ports:
+      - "8080:80"
+  api:
+    build: backend/
+    environment:
+      - PORT=3000
+      - REDIS_HOST=cache
+      - REDIS_PORT=6379
+    ports:
+      - "3000:3000"
+    networks:
+      - backend
+  cache:
+    image: redis:7.2.2-alpine
+    networks:
+      - backend
+
+networks:
+  backend:

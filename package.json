@@ -1,7 +1,0 @@
-{
-  "name": "number-facts-docker",
-  "workspaces": [
-    "backend",
-    "frontend"
-  ]
-}

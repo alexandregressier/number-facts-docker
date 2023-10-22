@@ -1,3 +1,4 @@
+# WARNING: This Docker Compose file is good enough. But it can definitely be improved for the mini-project.
 services:
   api:
     build: .

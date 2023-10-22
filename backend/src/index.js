@@ -1,5 +1,7 @@
 const express = require("express")
-const index = express()
+const cors = require("cors")
+const app = express()
+app.use(cors())
 const router = express.Router()
 const port = process.env.PORT || 3000
 
@@ -40,9 +42,9 @@ router.get("/facts/:number", async (req, res) => {
   }
 })
 
-index.use("/api", router)
+app.use("/api", router)
 
-index.listen(port, async () => {
+app.listen(port, async () => {
   console.log(`Connecting to Redis at redis://${redisHost}:${redisPort}…`)
   await client.connect();
   console.log("Connected to Redis.")
